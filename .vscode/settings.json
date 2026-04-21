@@ -1,0 +1,9 @@
+{
+  "terminal.integrated.profiles.osx": {
+    "Rosetta x86_64 zsh": {
+      "path": "arch",
+      "args": ["-x86_64", "zsh", "-l"],
+      "overrideName": true
+    }
+  }
+}

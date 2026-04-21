@@ -44,9 +44,9 @@ dm-env  #1.5
 
 dm-haiku  #0.0.6
 
-dm-launchpad  #0.5.0
+#dm-launchpad  #0.5.0
 
-dm-reverb  #0.7.0
+#dm-reverb  #0.7.0
 
 dm-sonnet  #2.0.0
 
@@ -112,17 +112,17 @@ matplotlib  #3.5.2
 
 mjrl @ git+https://github.com/aravindr93/mjrl@3871d93763d3b49c4741e6daeaebbc605fe140dc
 
-mkl-fft  #1.3.1
+#mkl-fft  #1.3.1
 
-mkl-service  #2.4.0
+#mkl-service  #2.4.0
 
 mock  #4.0.3
 
 msgpack  #1.0.4
 
-mujoco  #2.2.0
+#mujoco  #2.2.0
 
-mujoco-py  #2.0.2.7
+#mujoco-py  #2.0.2.7
 
 numpy  #1.22.4
 
