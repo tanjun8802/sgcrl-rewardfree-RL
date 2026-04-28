@@ -50,7 +50,7 @@ def mlp(input_dim: int, hidden_sizes: tuple, output_dim: int) -> nn.Sequential:
 # ------------------------------------------------------------------
 
 LOG_STD_MIN = -5.0
-LOG_STD_MAX  = 2.0
+LOG_STD_MAX = 2.0
 
 
 class Actor(nn.Module):
@@ -78,7 +78,7 @@ class Actor(nn.Module):
 
     def forward(self, obs: torch.Tensor):
         """Return (mean, log_std) of the un-squashed Gaussian."""
-        h       = F.relu(self.trunk(obs))
+        h       = self.trunk(obs)
         mean    = self.mean_fc(h)
         log_std = self.log_std_fc(h).clamp(LOG_STD_MIN, LOG_STD_MAX)
         return mean, log_std

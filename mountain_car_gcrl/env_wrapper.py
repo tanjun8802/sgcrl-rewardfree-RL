@@ -84,7 +84,6 @@ class GoalConditionedMountainCar(gym.Wrapper):
         state, info = self.env.reset(seed=seed, options=options)
 
         if self.sample_random_goals:
-            pos_range = self.env.observation_space
             # Sample a reachable goal position (right half of the range)
             goal_pos = self.np_random.uniform(0.1, 0.6)
             goal_vel = 0.0
