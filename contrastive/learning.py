@@ -181,7 +181,8 @@ class ContrastiveLearner(acme.Learner):
 
       else:  # For the MC losses.
         if config.use_cpc and config.cpc_temperature <= 0:
-          raise ValueError('cpc_temperature must be positive.')
+          raise ValueError(
+              f'cpc_temperature must be positive, got {config.cpc_temperature}.')
         def loss_fn(_logits):  # pylint: disable=invalid-name
           if config.use_cpc:
             scaled_logits = _logits / config.cpc_temperature
