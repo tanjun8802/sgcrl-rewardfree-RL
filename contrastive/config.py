@@ -26,6 +26,10 @@ class ContrastiveConfig:
   batch_size: int = 256
   actor_learning_rate: float = 3e-4
   learning_rate: float = 3e-4
+  # Temperature for CPC InfoNCE logits scaling.
+  cpc_temperature: float = 1.0
+  # Coefficient for CPC logsumexp-squared regularizer.
+  cpc_logsumexp_reg: float = 0.01
   reward_scale: float = 1
   discount: float = 0.99
   n_step: int = 1
