@@ -124,7 +124,6 @@ class ContrastiveLearner(acme.Learner):
         obs = jnp.concatenate([s, new_g], axis=1)
         transitions = transitions._replace(observation=obs)
       I = jnp.eye(batch_size)  # pylint: disable=invalid-name
-      target_labels = jnp.arange(batch_size)
       
       logits, _, _ = networks.q_network.apply(q_params, transitions.observation, transitions.action)
 
@@ -182,9 +181,10 @@ class ContrastiveLearner(acme.Learner):
       else:  # For the MC losses.
         if config.use_cpc and config.cpc_temperature <= 0:
           raise ValueError(
-              f'cpc_temperature must be positive, got {config.cpc_temperature}.')
+              f"CPC temperature must be positive (> 0), got {config.cpc_temperature}.")
         def loss_fn(_logits):  # pylint: disable=invalid-name
           if config.use_cpc:
+            target_labels = jnp.arange(batch_size)
             scaled_logits = _logits / config.cpc_temperature
             info_nce = optax.softmax_cross_entropy_with_integer_labels(
                 logits=scaled_logits, labels=target_labels)
